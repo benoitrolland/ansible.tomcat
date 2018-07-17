@@ -4,6 +4,15 @@
   template: src=server.xml.j2 dest="{{ tomcat_conf_dir }}/server.xml"
   notify: tomcat restart
   sudo: True
+  
+  
+- name: tomcat  | context configuration
+  - copy:
+    src: "{{ role_path }}/files/context{{tomcat_environnement}}.xml"
+    dest: dest="{{ tomcat_conf_dir }}/context.xml"
+  notify: tomcat restart
+  sudo: True
+
 
 - name: tomcat  | users configuration
   template: src=tomcat-users.xml.j2 dest="{{ tomcat_conf_dir }}/tomcat-users.xml"

@@ -19,6 +19,9 @@ tomcat_conf_dir:  "{{ tomcat_dest }}{{ tomcat_symlink }}/conf/"
 # Tomcat server.xml
 # nothing for now
 
+#for context.xml DEV|REC|PRD
+tomcat_environnement: "{{external_environment}}"
+
 # Tomcat users.xml
 tomcat_jenkins_username:  jenkins
 tomcat_admin_username:
